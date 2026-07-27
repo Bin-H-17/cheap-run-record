@@ -1,0 +1,24 @@
+# Guard: do not publish .runs/
+
+name: guard-runs
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  no-runs-dir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fail if .runs/ is present in the tree
+        run: |
+          if [ -d .runs ]; then
+            echo "::error::Found .runs/ in the repository. Run logs must stay local (see .gitignore)."
+            exit 1
+          fi
+          if git ls-files | grep -q '^\.runs/'; then
+            echo "::error::Tracked files under .runs/ are not allowed."
+            exit 1
+          fi
+          echo "OK: no .runs/ directory in tree."
