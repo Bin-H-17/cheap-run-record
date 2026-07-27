@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Bin-H-17/cheap-run-record/schemas/run-record.schema.json",
+  "title": "cheap-run-record run line",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["ts", "name", "status"],
+  "properties": {
+    "schema_version": { "type": "integer", "minimum": 1 },
+    "ts": { "type": "string", "minLength": 4 },
+    "name": { "type": "string", "minLength": 1 },
+    "status": {
+      "type": "string",
+      "enum": ["ok", "fail", "timeout", "oom", "nan", "crash", "incomplete"]
+    },
+    "stages_s": {
+      "type": "object",
+      "additionalProperties": { "type": "number" }
+    },
+    "duration_s": { "type": "number", "minimum": 0 },
+    "missing": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "note": { "type": "string" },
+    "git": { "type": "string" },
+    "seed": { "type": ["number", "string"] },
+    "config_hash": { "type": "string" },
+    "config_path": { "type": "string" },
+    "n": {
+      "type": ["object", "number"],
+      "additionalProperties": { "type": ["number", "string", "integer"] }
+    },
+    "peak_rss_mb": { "type": "number", "minimum": 0 },
+    "peak_gpu_mem_mb": { "type": "number", "minimum": 0 },
+    "hw": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "peak_gpu_temp_c": { "type": "number" },
+        "peak_cpu_temp_c": { "type": "number" },
+        "peak_gpu_util": { "type": "number", "minimum": 0, "maximum": 100 },
+        "avg_gpu_util": { "type": "number", "minimum": 0, "maximum": 100 },
+        "peak_cpu_util": { "type": "number", "minimum": 0, "maximum": 100 },
+        "avg_cpu_util": { "type": "number", "minimum": 0, "maximum": 100 },
+        "peak_power_w": { "type": "number", "minimum": 0 },
+        "thermal_throttled": { "type": "boolean" }
+      }
+    },
+    "artifact_mb": { "type": "number", "minimum": 0 },
+    "complexity": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": { "type": ["number", "string", "boolean", "null"] }
+    },
+    "baseline": { "type": "string" },
+    "delta_metrics": { "type": "object" },
+    "delta_duration_s": { "type": "number" },
+    "model": { "type": "string" },
+    "data_hash": { "type": "string" },
+    "dtype": { "type": "string" },
+    "tokens_in": { "type": "number" },
+    "tokens_out": { "type": "number" },
+    "est_cost_usd": { "type": "number" },
+    "prompt_template_hash": { "type": "string" },
+    "decode": { "type": "object" },
+    "residual": { "type": "number" },
+    "iters": { "type": "number" },
+    "proved": { "type": "boolean" },
+    "timeout_s": { "type": "number" },
+    "assumption": { "type": "string" }
+  },
+  "anyOf": [
+    { "required": ["stages_s"] },
+    { "required": ["duration_s"] }
+  ]
+}

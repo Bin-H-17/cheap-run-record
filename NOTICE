@@ -1,0 +1,13 @@
+cheap-run-record
+Copyright (c) 2026 Bin-H-17 and cheap-run-record contributors
+
+This project is a **synthesis and packaging** of widely discussed practices
+(experiment tracking, cheap instrumentation, reproducibility checklists).
+It is NOT a claim of exclusive invention of those practices.
+
+Related projects and documentation are listed in REFERENCES.md and PRIOR_ART.md.
+Their names, trademarks, and licenses remain with their respective owners.
+No endorsement by those projects is implied.
+
+When redistributing or forking, keep this NOTICE and REFERENCES.md so
+downstream users can see prior art and avoid misattribution.
