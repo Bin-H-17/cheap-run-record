@@ -35,6 +35,17 @@ After any experiment, benchmark, ablation, eval, or proof/search run, append **o
 
 Details: [skills/cheap-run-record/SKILL.md](skills/cheap-run-record/SKILL.md)
 
+### Keep run logs out of git
+
+Real project logs must not be committed:
+
+```gitignore
+.runs/
+.env
+```
+
+This repository already ignores `.runs/`. Copy that line into your own project’s `.gitignore`. Publish only synthetic examples (see `examples/`).
+
 ## Validate
 
 ```bash
@@ -46,7 +57,7 @@ Stdlib only; no network.
 
 ## Safety
 
-Do not log secrets, full prompts/outputs, or PII. See [SECURITY.md](SECURITY.md) and the skill’s safety section.
+Do not log secrets, full prompts/outputs, or PII. See [SECURITY.md](SECURITY.md) and the skill’s safety section. If logs might contain personal or regulated data, you are responsible for lawful use (minimization, consent/contract basis, retention, access control)—prefer hashes over raw content.
 
 ## License
 

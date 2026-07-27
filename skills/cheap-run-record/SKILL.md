@@ -41,7 +41,14 @@ Skip when the user only wants a design discussion with **no** execution.
 .runs/README.md           # optional: one-line pointer to this skill
 ```
 
-Add `.runs/` to `.gitignore` when logs may contain internal paths your org should not publish. Prefer committing **schema examples** only.
+Add `.runs/` to `.gitignore` for **every real project** (never commit live run logs):
+
+```gitignore
+.runs/
+.env
+```
+
+Prefer committing **schema examples** only (`examples/sample_runs.jsonl`). Conventions are not a sandbox—constrain agent file access separately if you handle secrets.
 
 ## Minimal record (required + strongly recommended)
 

@@ -11,3 +11,9 @@ No endorsement by those projects is implied.
 
 When redistributing or forking, keep this NOTICE and REFERENCES.md so
 downstream users can see prior art and avoid misattribution.
+
+This repository does **not** vendor third-party source code. REFERENCES.md
+and PRIOR_ART.md cite external projects for attribution only; those projects
+remain under their own licenses. Do not copy substantial third-party text or
+code into this tree without retaining the upstream license header and updating
+this NOTICE.
