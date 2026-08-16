@@ -1,4 +1,6 @@
 # cheap-run-record
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Bin-H-17/cheap-run-record/badge)](https://securityscorecards.dev/viewer/?uri=github.com/Bin-H-17/cheap-run-record)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 **Opportunistic run metadata** for math & AI: tiny fields you should record while a run is already happening (stage timings, peak memory, optional GPU/CPU temp & power, scale, seed/commit, claimed complexity). Packaged primarily as an **Agent Skill** so coding agents append a one-line JSON record after experiments / evals / proof searches.
 
